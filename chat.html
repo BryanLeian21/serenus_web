@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SERENUS - Chat</title>
+    <link rel="stylesheet" href="css/chat.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="top-nav">
+        <div class="icon-group">
+            <i class="fas fa-bars" id="btn-menu-lateral"></i>
+            <i class="fas fa-home" id="btn-ir-home"></i>
+            <i class="fas fa-search" id="btn-ir-buscar"></i>
+        </div>
+        <div class="action-buttons">
+            <button class="btn-green">+ Nueva Conversación</button>
+            <button class="btn-ai">+ Nueva Conversación con IA</button>
+        </div>
+    </header>
+
+    <div class="main-layout">
+        <aside class="sidebar-left">
+            <h1 class="brand-logo">SERENUS</h1>
+            <div class="canales-header">Canales</div>
+            
+            <div class="list-section">
+                <h3>Amigos</h3>
+                <div class="user-item">
+                    <img src="recursos/foto4.png" alt="avatar">
+                    <span>Adrian</span>
+                </div>
+                <div class="user-item">
+                    <img src="recursos/foto1.png" alt="avatar">
+                    <span>Jose</span>
+                </div>
+                <div class="user-item">
+                    <img src="recursos/foto2.png" alt="avatar">
+                    <span>Eva</span>
+                </div>
+            </div>
+
+            <div class="list-section">
+                <h3>Tus grupos</h3>
+                <div class="group-item">
+                    <img src="recursos/foto3.png" alt="group">
+                    <span>Amigos</span>
+                </div>
+                <div class="group-item">
+                    <img src="recursos/foto 5.png" alt="group">
+                    <span>Amigos</span>
+                </div>
+            </div>
+        </aside>
+
+        <section class="chat-window">
+            <div class="chat-header">
+                <img src="recursos/foto1.png" alt="group" class="header-avatar">
+                <div class="header-info">
+                    <h2>Grupo Amigos</h2>
+                    <span class="status">En linea <span class="dot-online"></span></span>
+                </div>
+            </div>
+
+            <div class="chat-messages">
+                <div class="msg-row received">
+                    <img src="https://via.placeholder.com/35" class="msg-avatar">
+                    <div class="bubble">
+                        <span class="sender-name">Grupo Amigos</span>
+                        <p>Hola</p>
+                    </div>
+                </div>
+
+                <div class="msg-row sent">
+                    <div class="bubble">
+                        <span class="sender-name">Tu</span>
+                        <p>Hola</p>
+                    </div>
+                    <img src="https://via.placeholder.com/35" class="msg-avatar">
+                </div>
+            </div>
+
+            <div class="chat-input-area">
+                <input type="text" placeholder="Escribe algo...">
+                <div class="input-actions">
+                    <i class="fas fa-plus"></i>
+                    <i class="far fa-smile"></i>
+                </div>
+            </div>
+        </section>
+
+        <aside class="sidebar-right">
+            <div class="support-card">
+                <h3>Soporte profesional</h3>
+                <ul class="support-list">
+                    <li>Diego <span class="dot green"></span></li>
+                    <li>Valeria <span class="dot red"></span></li>
+                    <li>Joaquin <span class="dot gray"></span></li>
+                    <li>Pamela <span class="dot green"></span></li>
+                    <li>Fernando <span class="dot gray"></span></li>
+                </ul>
+            </div>
+
+            <div class="resources-card">
+                <h3>Recursos Futuros</h3>
+                <div class="empty-box"></div>
+            </div>
+        </aside>
+    </div>
+
+    <script>
+
+        // --- ICONOS DE LA CABEZA (TOP-NAV) ---
+
+// 1. Botón Home (Icono de la casita)
+var iconoHome = document.getElementById('btn-ir-home');
+if (iconoHome) {
+    iconoHome.style.cursor = "pointer"; // Para que parezca un botón
+    iconoHome.onclick = function() {
+        window.location.href = "Index.html";
+    };
+}
+
+// 2. Botón Buscar (Icono de la lupa)
+var iconoSearch = document.getElementById('btn-ir-buscar');
+if (iconoSearch) {
+    iconoSearch.style.cursor = "pointer";
+    iconoSearch.onclick = function() {
+        // Si tienes una página de búsqueda, cámbiala aquí
+        window.location.href = "comunidad.html"; 
+    };
+}
+
+// 3. Botón Menú (Icono de barras)
+var iconoMenu = document.getElementById('btn-menu-lateral');
+if (iconoMenu) {
+    iconoMenu.style.cursor = "pointer";
+    iconoMenu.onclick = function() {
+        // Generalmente este botón solo muestra/oculta el sidebar
+        // Pero si quieres que lleve a una página:
+        console.log("Menú presionado");
+    };
+}
+    </script>
+    <script src="js/chat.js"></script>
+
+</body>
+</html>
