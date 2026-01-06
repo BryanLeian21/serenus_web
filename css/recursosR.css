@@ -1,0 +1,291 @@
+/* Variables de Color (Basadas en el wireframe) */
+:root {
+    --color-light-blue: #a7c8ff;  /* Azul pastel claro */
+    --color-light-purple: #c3b4fc; /* Morado pastel claro */
+    --color-light-green: #90d3c4; /* Verde pastel claro (para RECURSOS) */
+    --color-background: #f0f4f7; /* Fondo general de la aplicación */
+    --color-card-bg: #ffffff;
+    --color-text-dark: #374151;
+    --color-text-light: #ffffff;
+    --color-badge: #ef4444; /* Rojo para la notificación */
+}
+
+
+/* Reset y Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Quando, sans-serif;
+}
+.icon-group{
+    position: absolute;
+    
+}
+body {
+    background-color: var(--color-background);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.desktop-app-container {
+    width: 900px; 
+    height: 600px; 
+    background-color: var(--color-card-bg);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* --- Barra de Título --- */
+.app-title-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px;
+    border-bottom: 1px solid #f3f4f6;
+    color: var(--color-text-dark);
+}
+
+.app-security-icon, .user-profile-icon {
+    font-size: 1.2em;
+    color: #9ca3af;
+}
+
+.app-name {
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+/* --- Contenido Principal (Main Dashboard) --- */
+.main-dashboard {
+    display: flex;
+    flex-grow: 1;
+    padding: 30px;
+    gap: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+}
+
+/* Columna de Acciones */
+.action-column {
+    flex: 3; /* Ocupa más espacio */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Botones de Acción (Estilo base) */
+.mega-action-button, .small-action-button {
+    border: none;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.1s, opacity 0.1s;
+    text-transform: uppercase;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.mega-action-button:hover, .small-action-button:hover {
+    opacity: 0.95;
+}
+
+/* Botón Principal: NECESITO AYUDA INMEDIATA */
+.mega-action-button {
+    padding: 40px 20px;
+    font-size: 1.8em;
+    color: var(--color-text-light);
+    /* Degradado de azul a morado */
+    background: linear-gradient(90deg, var(--color-light-blue), var(--color-light-purple));
+    flex-grow: 1; /* Para que ocupe todo el espacio superior */
+}
+
+/* Fila de Botones Secundarios */
+.secondary-actions-row {
+    display: flex;
+    gap: 20px;
+}
+
+.small-action-button {
+    flex: 1;
+    padding: 20px 15px;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.small-action-button i {
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+
+.chat-btn {
+    background-color: var(--color-light-blue);
+    color: var(--color-text-light);
+}
+
+.resources-btn {
+    background-color: var(--color-light-green);
+    color: var(--color-text-light);
+}
+
+.badge {
+    position: absolute;
+    top: -5px;
+    right: 5px;
+    background-color: var(--color-badge);
+    color: white;
+    font-size: 0.7em;
+    padding: 3px 6px;
+    border-radius: 50%;
+    font-weight: bold;
+}
+
+/* --- Columna Lateral: Mood Tracker --- */
+.mood-tracker-sidebar {
+    display: inline-block;
+    flex: 1; /* Ocupa menos espacio que la columna de acciones */
+    background-color: var(--color-card-bg); /* Mantener blanco */
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.mood-tracker-sidebar h3 {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: var(--color-text-dark);
+    text-align: center;
+}
+
+.mood-emojis-grid-desktop {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas como se ve en la imagen */
+    gap: 15px;
+    justify-items: center;
+}
+
+.mood-emojis-grid-desktop span {
+    font-size: 28px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+.mood-emojis-grid-desktop span:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+.configuracion{
+    background-color: var(--color-light-blue);
+    color: var(--color-text-light);
+
+    padding: 22px;
+    height: 30 rem;
+    width: 20 rem;
+    
+}
+.Ayuda{
+   background-color: var(--color-light-green);
+    color: var(--color-text-light);
+
+    padding: 22px;
+    height: 30 rem;
+    width: 20 rem;
+}
+.icon-group {
+    background: white;
+    padding: 12px 19px;
+    border-radius: 8px;
+    gap: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* estilos de la ventana modal */
+
+/* estilos de ventana modal*/
+.modal-hidden {
+    display: none; /* Oculta la ventana */
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5); /* Fondo oscuro transparente */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-visible {
+    display: flex; /* Muestra la ventana */
+}
+
+/* El fondo que cubre toda la pantalla */
+.modal-container {
+    display: none; /* Se activa con JS */
+    position: fixed;
+    z-index: 9999; /* Por encima de todo */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro transparente */
+    justify-content: center;
+    align-items: center;
+}
+
+/* La tarjeta blanca en el centro */
+.modal-content {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    animation: aparecer 0.5s ease-out;
+}
+
+/* Animación suave */
+@keyframes aparecer {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+#btn-atras {
+    margin-top: 20px;
+    cursor: pointer;
+    border: none;
+    background: none;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+/* ultimos estilos modal*/
+/* El fondo oscuro que cubre toda la pantalla */
+.modal-overlay {
+    position: fixed; /* Esto hace que flote sobre todo */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Fondo semi-transparente */
+    display: none; /* Se cambia a 'flex' con JS */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    z-index: 10000; /* Asegura que esté por encima de cualquier otro elemento */
+}
+
+/* El cuadro blanco del mensaje */
+.modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 450px;
+    width: 90%;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}

@@ -1,0 +1,191 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #e9ecef;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Layout Principal: Organiza Sidebar y Contenido */
+.main-layout {
+    display: flex;
+    gap: 30px;
+    padding: 0;
+    background-color: #e9ecef;
+    min-height: 100vh;
+    align-items: flex-start;
+}
+
+.second-container{
+    display: block;
+    gap: 30px;
+    flex: 1; /* Ocupa el espacio restante */
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+/* Diseño de la Barra Lateral */
+.sidebar-card {
+    width: 280px;
+    background: white;
+    border-radius: 20px;
+    padding: 25px 0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+}
+/* Estilos de la etiqueta a */
+a{
+    text-decoration: none;
+    color: inherit;
+}
+/*Estilos de los iconos de la barra lateral*/
+i{
+    padding-right: 19px;
+}
+.sidebar-brand {
+    font-size: 24px;
+    font-weight: 900;
+    padding: 0 25px 20px 25px;
+    margin-bottom: 10px;
+}
+/* Elementos del Menú */
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-item.active {
+    background-color: #d1f7e6; /* Verde menta exacto */
+    color: #0d6b46;
+    font-weight: 600;
+}
+
+.nav-item {
+    border: none;
+    background: none;
+    text-align: left;
+    padding: 15px 25px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #444;
+    cursor: pointer;
+    border-bottom: 1px solid #f8f9fa;
+    transition: 0.3s;
+}
+
+.nav-item.active {
+    background-color: #d1f7e6; /* Verde menta exacto */
+    color: #0d6b46;
+    font-weight: 600;
+}
+
+.nav-item:hover:not(.active) {
+    background-color: #f1f3f5;
+}
+
+.sidebar-footer {
+    margin-top: 50px;
+    padding: 0 15px;
+}
+.footer-item {
+    width: 100%;
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    cursor: pointer;
+}
+
+.footer-item .icon {
+    font-size: 18px;
+}
+
+
+.white-card {
+    background: #ffffff;
+    border-radius: 30px; /* Bordes muy redondeados como tus capturas */
+    padding: 40px;
+    padding-bottom:30px ;
+    width: 100%;
+    max-width: 900px;
+    min-height: 500px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    animation: fadeIn 0.5s ease; /* UX: Transición suave */
+}
+.active-view {
+    display: block !important;
+}
+
+.card-setup-grid {
+    display: flex;
+    gap: 40px;
+}
+
+.profile-img-circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+/* Columna Derecha / Formulario */
+.profile-right-col { flex: 1; }
+
+.main-title { font-size: 32px; font-weight: 800; margin-bottom: 5px; }
+.sub-title { 
+    font-size: 18px; 
+    font-weight: 400; 
+    border-bottom: 1px solid #ddd; 
+    padding-bottom: 10px; 
+    margin-bottom: 20px; 
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.input-group label {
+    width: 150px;
+    font-size: 14px;
+    color: #333;
+}
+
+.input-field {
+    flex: 1;
+    background: #f1f3f5;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 15px;
+}
+
+/*estilos del boton guardar cambios*/
+.btn-submit-progresivo {
+    background-color: #d1f7e6; /* Gris inicial (0%) */
+    border: none;
+    padding: 12px 60px;
+    border-radius: 25px;
+    font-weight: bold;
+    color: rgb(8, 8, 8);
+    cursor: not-allowed;
+    transition: all 0.4s ease; /* Transición suave de color */
+}
+
+.btn-action-light {
+    width: 100%;
+    background: #f1f3f5;
+    border: none;
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
