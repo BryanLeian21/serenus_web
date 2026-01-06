@@ -1,0 +1,95 @@
+/* RESET GENERAL */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { 
+    font-family: Arial, sans-serif; 
+    background-color: #e9ecef; /* Color gris suave de fondo */
+    transition: background-color 0.4s ease;
+}
+
+/* BARRA SUPERIOR */
+.top-nav { padding: 20px; }
+.nav-card-icons {
+    background: white;
+    display: inline-flex;
+    padding: 10px 20px;
+    border-radius: 12px;
+    gap: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+/* LAYOUT PRINCIPAL */
+.main-layout {
+    display: flex;
+    padding: 0 40px 40px 40px;
+    gap: 30px;
+}
+
+/* SIDEBAR */
+.sidebar-card {
+    width: 280px;
+    background: white;
+    padding: 30px 20px;
+    border-radius: 20px;
+    height: fit-content;
+}
+.brand-name { margin-bottom: 25px; font-weight: bold; }
+.menu-item {
+    padding: 12px;
+    border-bottom: 1px solid #f0f0f0;
+    cursor: pointer;
+    color: #555;
+}
+.menu-item.active {
+    background-color: #d1f7e6;
+    border-radius: 10px;
+    color: #333;
+}
+
+/* TARJETA BLANCA */
+.content-display { flex: 1; display: flex; justify-content: center; }
+.white-card {
+    background: white;
+    border-radius: 30px;
+    padding: 40px;
+    width: 100%;
+    max-width: 950px;
+}
+.card-header { margin-bottom: 30px; }
+.card-body-grid { display: flex; gap: 40px; }
+
+/* COLUMNA IZQUIERDA */
+.left-col { width: 200px; text-align: center; }
+.circle-placeholder {
+    width: 120px; height: 120px;
+    background: #000; color: white;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    display: flex; align-items: center; justify-content: center; font-size: 40px;
+}
+.btn-small, .btn-outline {
+    width: 100%; margin: 5px 0; padding: 8px;
+    border-radius: 10px; border: none; cursor: pointer;
+}
+.btn-small { background: #f0f2f5; }
+.btn-outline { background: white; border: 1px solid #ddd; margin-top: 40px; }
+
+/* COLUMNA DERECHA (FORMULARIO) */
+.right-col { flex: 1; }
+.input-row {
+    display: flex; align-items: center; margin-bottom: 12px;
+}
+.input-row label { width: 160px; font-size: 14px; }
+.campo-registro {
+    flex: 1; background: #f0f2f5; border: none;
+    border-radius: 12px; padding: 10px;
+}
+.spacer { margin: 25px 0; border: 0; border-top: 1px solid #eee; }
+.checkbox-list { margin: 20px 0; font-size: 13px; display: flex; flex-direction: column; gap: 8px;}
+
+/* BOTÓN FINAL */
+.btn-main {
+    display: block; width: 220px; margin: 20px auto 0;
+    padding: 12px; border-radius: 20px; border: none;
+    background-color: #ff9999; /* Inicia en Rojo (Casi listo) */
+    color: white; font-weight: bold; transition: 0.3s;
+}
