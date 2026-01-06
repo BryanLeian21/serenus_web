@@ -1,0 +1,49 @@
+/* Contenedor principal de Recursos */
+#view-recursos {
+    padding: 30px;
+}
+
+.recursos-header {
+    margin-bottom: 25px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+/* La cuadrícula mágica */
+.actividades-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+/* Estilo de cada Mini-Tarjeta */
+.actividad-card {
+    background: #fdfdfd;
+    border: 1px solid #f0f0f0;
+    border-radius: 15px;
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.actividad-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+/* Estilo de la tarjeta "Añadir" */
+.add-card {
+    border: 2px dashed #ccc;
+    background: transparent;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+}
+
+.add-card:hover {
+    border-color: #1a7f53;
+    color: #1a7f53;
+}
