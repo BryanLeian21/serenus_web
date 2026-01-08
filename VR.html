@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SERENUS-VR</title><link rel="stylesheet" href="css/VR.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <div class="main-layout">
+        
+        <aside class="sidebar-card">
+                <div class="sidebar-header">
+                    <span class="sidebar-brand"><a href="index.html">SERENUS-VR</a></span>
+                </div>      
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item"> <i class="fas fa-tachometer-alt"></i> Panel     </a>
+                <a href="perfil.html" class="nav-item"> <i class="fa-solid fa-face-grin-tongue-squint"></i>      Perfil</a>
+                <a href="comunidad.html" class="nav-item"> <i class="fas fa-comments"></i>     Comunidad</a>
+                <a href="repositorio.html" class="nav-item"><i class="fas fa-book"></i>      Recursos</a>
+                <a href="#" class="nav-item active">VR</a>
+                <a href="configuracion.html" class="nav-item"> <i class="fas fa-cog"></i>     Configuración
+                </a>
+                <a href="indexOA.html" class="nav-item"><i class="fas fa-ambulance"></i>      Emergencias</a>
+            </nav>
+        </aside>
+                <section id="view-perfil" class="white-card active-view">
+                <div class="card-setup-grid">
+                 <div class="profile-left-col">
+
+            
+                <div class="profile-actions">
+                    <button class="btn-action-light">Añadir Modelo</button>
+                    <button class="btn-action-light">Experiencia VR</button>
+                </div>
+
+                <div class="theme-placeholder-box">
+                    <button class="btn-text-only">+ Nuevo tema</button>
+                </div>
+            </div>
+
+        <div class="profile-right-col">
+            <header class="desktop-header">
+                <h1 class="main-title">SERENUS</h1>
+                <h2 class="sub-title">VR</h2>
+            </header>
+            <div class="container-model" id="">
+
+            <script type="module" src="https://unpkg.com/@splinetool/viewer@1.12.29/build/spline-viewer.js" async></script>
+            <spline-viewer url="https://prod.spline.design/mvz3c1MnMoxkKalC/scene.splinecode"><img src="data:image/png;base64,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" alt="Spline preview" style="width: 100%; height: 100%;"/></spline-viewer>
+            
+            </div>
+
+            <div class="container-model" id="">
+                
+            
+            <script type="module" src="https://unpkg.com/@splinetool/viewer@1.12.29/build/spline-viewer.js"></script>
+            <spline-viewer url="https://prod.spline.design/MStKPS8dK4v4NR9X/scene.splinecode"></spline-viewer>
+
+            </div>
+            <div class="container-model">
+                <div class="sketchfab-embed-wrapper"> <iframe title="Poké Ball - Pokemon Pokeball" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/c266163bd310411bac727783e4c79c4a/embed"> </iframe> <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a href="https://sketchfab.com/3d-models/poke-ball-pokemon-pokeball-c266163bd310411bac727783e4c79c4a?utm_medium=embed&utm_campaign=share-popup&utm_content=c266163bd310411bac727783e4c79c4a" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> Poké Ball - Pokemon Pokeball </a> by <a href="https://sketchfab.com/j-orgaz?utm_medium=embed&utm_campaign=share-popup&utm_content=c266163bd310411bac727783e4c79c4a" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> Jesús Orgaz </a> on <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=c266163bd310411bac727783e4c79c4a" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a></p></div>
+            </div>
+
+        </div>
+        <div class="form-container">
+                <a data-8code="7b845"></a>
+                <script src="//cdn.8thwall.com/web/share/embed8.js"></script>  
+            </div>
+                </div>
+
+
+            </section>
+
+
+
+    </div>
+
+
+    
+</body>
+</html>

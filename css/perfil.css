@@ -195,6 +195,11 @@ i{
     align-items: center;
     margin-bottom: 10px;
 }
+.input-group_2 {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
 
 .input-group label {
     width: 150px;
