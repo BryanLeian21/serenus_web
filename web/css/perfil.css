@@ -488,3 +488,69 @@ a{
     text-decoration: none;
     color: inherit;
 }
+
+/* prueba Intento de MEDIA QUERIS 1 */
+
+/* --- RESPONSIVE PERFIL (Pantallas menores a 768px) --- */
+@media (max-width: 768px) {
+    /* Contenedor principal del perfil */
+    .profile-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+    /* Ajuste de la sección de foto y botones de acción */
+    .profile-left-section {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+
+    .profile-avatar {
+        width: 150px; /* Tamaño un poco más pequeño para móvil */
+        height: 150px;
+    }
+
+    /* Ajuste del formulario */
+    .profile-form {
+        width: 100%;
+    }
+
+    /* Hacemos que las etiquetas y los inputs ocupen todo el ancho */
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 15px;
+    }
+
+    .form-group label {
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    .form-group input, 
+    .form-group select {
+        width: 100%;
+        height: 45px; /* Más alto para que sea fácil de tocar con el dedo */
+        border-radius: 20px;
+        padding: 10px 15px;
+    }
+
+    /* Ajuste de los checkboxes de términos y condiciones */
+    .checkbox-group {
+        font-size: 14px;
+        line-height: 1.4;
+    }
+
+    /* Botón Registrarse en pantalla completa */
+    .btn-register {
+        width: 100%;
+        padding: 15px;
+        font-size: 18px;
+        margin-top: 20px;
+    }
+}

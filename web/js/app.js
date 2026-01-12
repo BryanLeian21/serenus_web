@@ -38,3 +38,33 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+
+// Nuevo javascipt para el menu lateral //
+
+const menuToggle = document.getElementById('menu-toggle');
+const closeMenu = document.getElementById('close-menu');
+const sidebar = document.querySelector('.sidebar-card');
+const overlay = document.getElementById('menu-overlay');
+
+// Función para ABRIR
+function abrirMenu() {
+    sidebar.classList.add('active');
+    overlay.classList.add('active');
+    menuToggle.style.opacity = '0'; // Desvanece la hamburguesa
+    menuToggle.style.pointerEvents = 'none'; // Evita clics accidentales
+}
+
+// Función para CERRAR
+function cerrarMenu() {
+    sidebar.classList.remove('active');
+    overlay.classList.remove('active');
+    menuToggle.style.opacity = '1'; // Reaparece la hamburguesa
+    menuToggle.style.pointerEvents = 'auto';
+}
+
+// Eventos de clic
+menuToggle.addEventListener('click', abrirMenu);
+closeMenu.addEventListener('click', cerrarMenu);
+overlay.addEventListener('click', cerrarMenu); // Cerrar al tocar lo oscuro
+

@@ -642,3 +642,182 @@ a{
     text-decoration: none;
     color: inherit;
 }
+
+/* Mediaqueris INTENTO 1 */
+
+/* Estilos para Celulares (Pantallas menores a 768px) */
+@media (max-width: 768px) {
+    .main-layout {
+        display: flex;
+        flex-direction: column; /* La barra lateral ahora estará arriba y el contenido abajo */
+    }
+}
+@media (max-width: 768px) {
+    .content-area {
+        padding: 15px; /* Menos margen en los lados para ganar espacio */
+    }
+
+    .uplink-banner {
+        flex-direction: column; /* El logo arriba, el texto al medio y el botón abajo */
+        text-align: center;
+        gap: 15px;
+    }
+
+    .help-button {
+        width: 100%; /* El botón de "OBTEN AYUDA" se vuelve grande para facilitar el toque */
+        margin: 0;
+    }
+}
+@media (max-width: 600px) {
+    /* La cuadrícula de 4 tarjetas pasa a ser de 1 sola columna */
+    .support-grid {
+        display: grid;
+        grid-template-columns: 1fr; 
+        gap: 20px;
+    }
+
+    .card {
+        width: 100%; /* Cada tarjeta ocupa todo el ancho del celular */
+        height: auto;
+        padding: 20px;
+    }
+}
+
+
+
+
+/* Estilos base para el botón (oculto en escritorio) */
+.menu-toggle {
+    display: none;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    width: 50px;
+    height: 30px;
+    z-index: 1000;
+    background: #47A23A;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* Aparece en móviles */
+    }
+
+    .sidebar-card {
+        position: fixed;
+        left: -100%; /* Lo escondemos fuera de la pantalla a la izquierda */
+        top: 0;
+        width: 250px;
+        height: 100vh;
+        z-index: 999;
+        transition: 0.3s ease-all; /* Animación suave */
+        box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    }
+
+    /* Cuando el menú tenga la clase .active, se deslizará hacia adentro */
+    .sidebar-card.active {
+        left: 0;
+    }
+
+    /* Ajuste para que el contenido principal ocupe toda la pantalla */
+    .main-layout {
+        display: block; 
+    }
+}
+
+/* Cuando la barra lateral está ACTIVA, ocultamos el botón de abrir */
+.sidebar-card.active ~ .menu-toggle {
+    display: none;
+}
+
+/* Opcional: Si quieres un botón para CERRAR dentro de la barra lateral */
+.close-menu {
+    display: none; /* Oculto en escritorio */
+    background: none;
+    border: none;
+    color: #5d5fef;
+    font-size: 24px;
+    align-self: flex-end;
+    padding: 10px;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .close-menu {
+        display: block; /* Aparece solo en móviles dentro del menú */
+    }
+}
+
+
+/* Estilo del botón de cerrar flotante */
+.close-menu {
+    display: none; /* Se oculta por defecto en escritorio */
+    position: absolute; /* Flota sobre el contenido */
+    top: 20px;
+    right: -15px; /* Lo desplazamos un poco hacia afuera para que sobresalga */
+    width: 40px;
+    height: 40px;
+    background-color: #5d5fef; /* El color morado de tu marca */
+    color: white;
+    border: none;
+    border-radius: 50%; /* Lo hace perfectamente circular */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Le da profundidad */
+    z-index: 1001; /* Asegura que esté por encima de todo */
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.close-menu:hover {
+    background-color: #4a4cd9;
+    transform: scale(1.1); /* Se agranda un poquito al tocarlo */
+}
+
+@media (max-width: 768px) {
+    .close-menu {
+        display: flex; /* Aparece solo en móviles */
+    }
+    
+    /* Aseguramos que la sidebar tenga posición relativa para que el botón se alinee con ella */
+    .sidebar-card {
+        position: fixed;
+        left: -100%;
+        transition: 0.3s ease-all;
+    }
+}
+/* Capa oscura de fondo */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* Color negro con 50% de transparencia */
+    backdrop-filter: blur(3px); /* Desenfoque opcional para más elegancia */
+    z-index: 998; /* Justo debajo de la sidebar y el botón de cerrar */
+    display: none; /* Oculto por defecto */
+}
+
+/* Mostrar la capa cuando esté activa */
+.menu-overlay.active {
+    display: block;
+}
+
+/* Asegurar que el botón de cerrar solo se vea cuando la sidebar esté activa */
+.close-menu {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+}
+
+.sidebar-card.active .close-menu {
+    opacity: 1;
+    visibility: visible;
+}

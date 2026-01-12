@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SERENUS - Chat</title>
     <link rel="stylesheet" href="css/chat.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 <!-- Estructura general-->
+ <div class="menu-overlay" id="menu-overlay"></div>
     <header class="top-nav">
         <div class="action-buttons">
             <button class="btn-green">+ Nueva Conversación</button>
@@ -17,6 +19,9 @@
     </header>
 
     <div class="main-layout">
+
+        <button class="menu-toggle" id="menu-toggle">
+        <i class="fa-solid fa-bars"></i> </button>
         <aside class="sidebar-left">
             <h1 class="brand-logo"><a href="index.html">SERENUS</a></h1>
             <div class="list-section">
@@ -139,6 +144,7 @@ if (iconoMenu) {
     };
 }
     </script>
+       <script src="js/app.js"></script>
     <script src="js/chat.js"></script>
 
 </body>
