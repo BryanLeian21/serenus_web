@@ -1,0 +1,266 @@
+
+/* ===== SERENUS sidebar: estilos base ===== */
+.sidebar-card {
+  /* si prefieres que tome el ancho del contenedor, borra esta línea */
+  width: 280px;
+
+  background: white;
+  border-radius: 20px;                 /* esquinas redondeadas del card */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  overflow: hidden;                    /* para que el radio se aplique correctamente */
+  color: #0f172a;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  padding: 25px 0;
+}
+/* Reset basico general */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+a{
+  text-decoration: none;
+  color: inherit;
+}
+i{
+  padding-right: 19px;
+}
+/* Encabezado superior con separador */
+.sidebar-header {
+  padding: 0 25px 20px 25px;
+}
+.sidebar-brand {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 900;                    /* fuerte, como en el diseño */
+  letter-spacing: 0.4px;
+}
+
+/* Lista de opciones con separadores finos */
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+}
+.nav-item {
+  border: none;
+  background: none;
+  text-align: left;
+  padding: 15px 25px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #444;
+  cursor: pointer;
+  border-bottom: 1px solid #f8f9fa;
+  transition: 0.3s;
+}
+.nav-item:first-child {
+  border-top: none;                    /* primera fila sin separador superior */
+}
+
+/* Activo: menta claro, ocupa toda la fila */
+.nav-item.active {
+  background: #d1f7e6;                 /* menta */
+  color: #0d6b46;
+  font-weight: 600;
+}
+
+.nav-item:hover:not(.active) {
+  background-color: #f1f3f5;
+}
+
+/* estilos para el contenedor de la página */
+body {
+  background: #eef1f4;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.white-card {
+  background: #ffffff;
+  border-radius: 30px;
+  padding: 40px;
+  width: 100%;
+  max-width: 900px;
+  min-height: 500px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 24px;
+}
+
+.section {
+  margin-bottom: 32px;
+  display: none;
+}
+
+.section.visible {
+  display: block;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 14px;
+  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 6px;
+}
+
+.activity-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.activity-card {
+  height: 120px;
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  text-align: center;
+}
+
+.activity-card strong {
+  font-weight: 700;
+}
+
+.activity-card span {
+  font-size: 14px;
+}
+
+/* Colores */
+.activity-card.gray {
+  background: #e6e6e6;
+}
+
+.activity-card.blue {
+  background: #b7e3ff;
+}
+
+.activity-card.green {
+  background: #d9ffe9;
+}
+
+
+
+/* estilos para el contendeor principal */
+
+/* Contenedor principal */
+.main-layout {
+  display: flex;
+  gap: 30px;
+  width: 100vw;      
+  min-height: 100vh;     
+  margin: 0;
+  padding: 0px;     
+  background-color: #e9ecef;
+  align-items: flex-start;
+}
+
+/* Sidebar fija: no crece ni se encoge */
+.serenus-sidebar {
+  flex: 0 0 260px;   /* ancho fijo de la barra */
+}
+
+
+/*Estilos ultimos como pruebas*/
+
+
+/* La columna central debe poder ocupar el resto del ancho si usas flex en el padre */
+.content-area{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Fila de botones */
+.actions-row{
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 12px;       /* separación respecto al panel */
+}
+
+/* Botón tipo “píldora” */
+.pill{
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 999px;      /* forma de pastilla */
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  width: 300px;
+}
+
+/* Icono con el “+” dentro de un círculo */
+.pill__icon{
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1;
+  color: #0f172a;            /* el “+” en negro */
+  padding: 0;
+
+}
+
+/* Variantes de color (como tu diseño) */
+.pill--mint{
+  background: #dffbe9;       /* menta suave */
+  color: #0f172a;            /* texto oscuro */
+}
+.pill--mint .pill__icon{
+  background: #dffbe9;       /* círculo mismo color */
+}
+
+.pill--blue{
+  background: #8fb0ff;       /* azul claro del mock */
+  color: #ffffff;            /* texto blanco en azul */
+}
+.pill--blue .pill__icon{
+  background: #8fb0ff;       /* círculo mismo color */
+}
+
+/* Panel central */
+.panel{
+  background: #ffffff;
+  border: 1px solid #d7dde3;
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(17,24,39,0.08);
+  overflow: hidden;
+}
+.panel__header{
+  padding: 18px 20px 10px;
+  border-bottom: 1px solid #e5e9ee;
+}
+.panel__title{
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+.panel__body{
+  padding: 16px 20px 22px;
+}
+

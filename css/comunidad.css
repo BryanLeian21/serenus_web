@@ -1,0 +1,196 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: inline-flex;
+    
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5; /* Color de fondo gris claro */
+    color: #333;
+}
+
+/* Layout principal con CSS Grid */
+.container {
+    display: grid;
+    grid-template-columns: 200px 1fr 60px 250px; /* Define las 4 columnas */
+    min-height: 100vh;
+}
+
+/* Menú Lateral Izquierdo */
+.sidebar-left {
+    background-color: #1a3646; /* Azul oscuro del diseño */
+    color: white;
+    padding-top: 20px;
+}
+
+.sidebar-left ul {
+    list-style: none;
+}
+
+.sidebar-left li a {
+    display: block;
+    padding: 15px 20px;
+    color: #b0c4de;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.sidebar-left li a:hover,
+.sidebar-left li a.active {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Contenido Principal */
+
+/* Nuevo css para ajustar las imágenes de las cartas*/
+/* Contenedor de la Tarjeta */
+.topic-card {
+    background: #ffffff;
+    border-radius: 16px; /* Esquinas más suaves */
+    overflow: hidden;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Sombra muy suave */
+    transition: transform 0.3s ease;
+    border: 1px solid #f0f0f0;
+}
+
+.topic-card:hover {
+    transform: translateY(5px); /* Efecto al pasar el mouse */
+}
+
+/* Cabecera del Usuario */
+.topic-header {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    gap: 12px;
+}
+
+.user-avatar-small {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: #eee;
+}
+
+.user-name {
+    display: block;
+    font-weight: 700;
+    font-size: 14px;
+    color: #333;
+}
+
+.post-time {
+    font-size: 11px;
+    color: #888;
+}
+
+/* Imagen */
+.topic-image-container {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.topic-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Evita que la imagen se estire */
+}
+
+/* Cuerpo de texto */
+.topic-body {
+    padding: 20px;
+}
+
+.topic-title {
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #1a1a1a;
+}
+
+.topic-description {
+    font-size: 13px;
+    line-height: 1.5;
+    color: #666;
+}
+
+/* Footer e Iconos */
+.topic-footer {
+    padding: 15px 20px;
+    border-top: 1px solid #f9f9f9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.interaction-icons {
+    display: flex;
+    gap: 15px;
+    color: #555;
+    font-size: 13px;
+}
+
+.interaction-icons i {
+    margin-right: 5px;
+    color: #4CAF50; /* Verde SERENUS */
+}
+
+/* Estilo de la Etiqueta (Tag) */
+.topic-tag {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.mindfulness {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+/* Este contenedor controla cómo se reparten las tarjetas */
+.feed-container {
+    display: grid;
+    /* Esto crea columnas automáticamente según el espacio disponible */
+    grid-template-columns: repeat(auto-fill, minmax(1950px, 1fr)); 
+    gap: 25px; /* Espacio uniforme entre tarjetas */
+    padding: 0px 0;
+}
+
+/* Asegúrate de que la tarjeta no tenga un ancho fijo */
+.topic-card {
+    width: 100%; /* La tarjeta se adapta al tamaño de la columna del grid */
+    background: #ffffff;
+    border-radius: 16px;
+    /* ... (resto de tus estilos de tarjeta) ... */
+}
+
+/*estilo del footer de la barra lateral*/
+.sidebar-footer {
+    margin-top: 50px;
+    padding: 0 15px;
+}
+.footer-item {
+    width: 100%;
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    cursor: pointer;
+}
+
+.footer-item .icon {
+    font-size: 18px;
+}

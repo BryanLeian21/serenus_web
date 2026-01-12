@@ -1,0 +1,9 @@
+.container-model{
+    display: flex;
+    padding: 5px;
+    margin: solid 10px;
+    gap: 25px;
+    background-color: rgb(8, 8, 8);
+    border-radius: 20%;
+
+}

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SERENUS - Dashboard de Escritorio</title>
+    <link rel="stylesheet" href="Obtener ayuda/style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+</head>
+<body>
+    <!--contenedor general-->
+<div class="main-layout"> 
+    <!--Barra lateral-->
+    <div class="menu-overlay" id="menu-overlay"></div>
+        <button class="menu-toggle" id="menu-toggle">
+        <i class="fa-solid fa-bars"></i> </button>
+        <aside class="sidebar-card">
+            <div class="sidebar-header">
+                <span class="sidebar-brand"><a href="index.html">SERENUS</a></span>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item"><i class="fas fa-tachometer-alt"></i> Panel</a>
+                <a href="comunidad.html" class="nav-item "><i class="fas fa-comments"></i> Comunidad</a>
+                <a href="recursosB.html" class="nav-item"><i class="fas fa-comments"></i>Recursos</a>
+                <a href="indexOA.html" class="nav-item active"><i class="fas fa-ambulance"></i> Emergencias</a>
+                <a href="configuracion.html" class="nav-item"><i class="fas fa-cog"></i> Configuraciones</a>
+            </nav>
+            <div class="sidebar-footer">
+            <button class="footer-item" href="anexados/configuracion.html">
+                <span  class="icon">i</span> ¿Necesitas Ayuda?
+            </button>
+            <button class="footer-item">
+                <span class="icon">⚙</span> Configuración
+            </button>
+            </div>
+        </aside>
+
+
+    <div class="desktop-app-container">
+        <!--Tarjeta central-->
+            
+        <main class="main-dashboard">
+            <section class="action-column">
+                
+                <button class="mega-action-button primary-gradient-btn" id="btn-ayuda-inmediata">
+                    NECESITO AYUDA INMEDIATA
+                </button>
+
+                <div class="secondary-actions-row">
+                    <button class="small-action-button chat-btn">
+                        <a href="chat.html">QUIERO HABLAR</a>
+                    </button>
+                    <button class="small-action-button resources-btn">
+                        <a href="repositorio.html">Recursos</a>
+                    </button>
+                </div>
+            </section>      
+        </main>
+
+    </div>
+
+    <!--Barra lateral mood tracker-->
+
+    <section class="mood-tracker-sidebar">
+                <div class="logo-section">
+                <span class="logo-text">SERENUS</span>
+                </div>
+                <h3>Mood emoticon</h3>
+                <div class="mood-emojis-grid-desktop">
+                    <span data-mood="enojado">😠</span>
+                    <span data-mood="triste">😔</span>
+                    <span data-mood="asustado">😨</span>
+                    <span data-mood="confundido">😕</span>
+                    <span data-mood="calmado">😌</span>
+                    <span data-mood="feliz">😊</span>
+                    <span data-mood="motivado">💪</span>
+                    <span data-mood="agradecido">🙏</span>
+                    <span data-mood="amado">🥰</span>
+                </div>
+                <div id="modal-agradecimiento" class="modal-hidden">
+                            <div class="modal-content">
+                            <h2>!Muchas Gracias por tu Interacción!</h2>
+                            <p>Cada reacción en el “Mood Emoticon”, nos ayuda a comprenderte mejor.</p>
+                            <button id="btn-atras">atras</button>
+                            </div>
+                </div>
+            </section>
+</div>
+    <script>
+        // --- Script de la funcion de los emoticonos ---
+         window.onload = function() {
+    
+        // 1. Buscamos el botón por su ID
+        var botonAyuda = document.getElementById('booton_press');
+
+        // 2. Si el botón existe en esta página...
+         if (botonAyuda) {
+        // 3. Le decimos qué hacer cuando alguien le haga clic
+        botonAyuda.onclick = function() {
+            // 4. Cambiamos la dirección de la página actual
+            // Verifica que la ruta al archivo sea correcta
+            window.location.href = "chat.html";
+        };
+         }
+        };
+
+            window.onload = function() {
+             // 1. Buscamos todos los emojis (spans) y el modal
+         var listaEmojis = document.querySelectorAll('.mood-emojis-grid-desktop span');
+            var ventanaModal = document.getElementById('modal-agradecimiento');
+         var botonCerrar = document.getElementById('btn-atras');
+
+    // 2. A cada emoji le damos la instrucción de abrir el modal
+    listaEmojis.forEach(function(emoji) {
+        emoji.onclick = function() {
+            // En lugar de aparecer al lado, el modal ocupa toda la pantalla
+            ventanaModal.style.display = "flex"; 
+        };
+    });
+
+    // 3. Instrucción para el botón "atras" para cerrar
+    if (botonCerrar) {
+        botonCerrar.onclick = function() {
+            ventanaModal.style.display = "none";
+        };
+    }
+};
+
+
+
+
+        // --- ICONOS DE LA CABEZA (TOP-NAV) ---
+
+        // 1. Botón Home (Icono de la casita)
+    var iconoHome = document.getElementById('btn-ir-home');
+if (iconoHome) {
+    iconoHome.style.cursor = "pointer"; // Para que parezca un botón
+    iconoHome.onclick = function() {
+        window.location.href = "index.html";
+    };
+}
+
+// 2. Botón Buscar (Icono de la lupa)
+var iconoSearch = document.getElementById('btn-ir-buscar');
+if (iconoSearch) {
+    iconoSearch.style.cursor = "pointer";
+    iconoSearch.onclick = function() {
+        // Si tienes una página de búsqueda, cámbiala aquí
+        window.location.href = "comunidad.html"; 
+    };
+}
+
+// 3. Botón Menú (Icono de barras)
+var iconoMenu = document.getElementById('btn-menu-lateral');
+if (iconoMenu) {
+    iconoMenu.style.cursor = "pointer";
+    iconoMenu.onclick = function() {
+        // Generalmente este botón solo muestra/oculta el sidebar
+        // Pero si quieres que lleve a una página:
+        console.log("Menú presionado");
+    };
+}
+    </script>
+       <script src="js/app.js"></script>
+
+    <script src="Obtener ayuda/script.js"></script>
+</body>
+</html>
