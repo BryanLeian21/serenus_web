@@ -16,9 +16,12 @@ body{
 }
 
 .second-container{
-    display: block;
-    gap: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 48px; /* Espacio considerable entre tarjetas */
+    padding: 30px 0; /* Resalta separación vertical general */
     flex: 1; /* Ocupa el espacio restante */
+    align-items: center; /* Centra las tarjetas con max-width */
 }
 a{
     text-decoration: none;
@@ -117,6 +120,7 @@ i{
     min-height: 500px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     animation: fadeIn 0.5s ease; /* UX: Transición suave */
+    margin: 0 auto; /* Centrar tarjeta en el contenedor */
 }
 .active-view {
     display: block !important;
@@ -124,7 +128,7 @@ i{
 
 .card-setup-grid {
     display: flex;
-    gap: 40px;
+    gap: 40px; /* Separación interna entre columnas */
 }
 
 .profile-img-circle {
@@ -133,6 +137,19 @@ i{
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 20px;
+}
+
+/* Fila con imagen y nombre */
+.profile-id-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 12px;
+}
+.profile-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
 }
 
 /* Columna Derecha / Formulario */
@@ -188,4 +205,47 @@ i{
     border-radius: 10px;
     cursor: pointer;
     font-size: 14px;
+}
+
+/* =================== RESPONSIVE =================== */
+@media (max-width: 1024px) {
+    .white-card { max-width: 820px; padding: 32px; }
+    .card-setup-grid { gap: 28px; }
+    .second-container { gap: 40px; }
+}
+
+@media (max-width: 768px) {
+    .main-layout { flex-direction: column; gap: 20px; padding: 0 16px; }
+    .sidebar-card { width: 100%; }
+    .white-card { max-width: 100%; }
+    .card-setup-grid { flex-direction: column; gap: 20px; }
+    .profile-img-circle { width: 120px; height: 120px; margin: 0 auto 16px; }
+    .input-group { flex-direction: column; align-items: stretch; }
+    .input-group label { width: auto; margin-bottom: 6px; }
+    .second-container { align-items: stretch; gap: 28px; }
+
+    /* Acciones más pequeñas y a la derecha */
+    .profile-actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 8px;
+        width: 100%;
+    }
+    .profile-actions .btn-action-light {
+        width: auto;
+        padding: 8px 12px;
+        font-size: 12px;
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .white-card { padding: 24px; border-radius: 20px; min-height: unset; }
+    .main-title { font-size: 26px; }
+    .sub-title { font-size: 16px; }
+    .card-setup-grid { gap: 16px; }
+    .profile-img-circle { width: 100px; height: 100px; }
+    .btn-action-light { font-size: 13px; padding: 8px; }
+    .profile-actions .btn-action-light { padding: 6px 10px; font-size: 11px; }
+    .second-container { gap: 24px; padding: 20px 0; }
 }

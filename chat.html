@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SERENUS - Chat</title>
-    <link rel="stylesheet" href="css/chat.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/chat.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -111,40 +111,42 @@
     </div>
 
     <script>
+        // Script para el menú lateral en chat
+        const menuToggle = document.getElementById('menu-toggle');
+        const sidebarLeft = document.querySelector('.sidebar-left');
+        const overlay = document.getElementById('menu-overlay');
 
-        // --- ICONOS DE LA CABEZA (TOP-NAV) ---
+        // Función para abrir el menú
+        function abrirMenu() {
+            if (sidebarLeft && overlay && menuToggle) {
+                sidebarLeft.classList.add('active');
+                overlay.classList.add('active');
+            }
+        }
 
-// 1. Botón Home (Icono de la casita)
-var iconoHome = document.getElementById('btn-ir-home');
-if (iconoHome) {
-    iconoHome.style.cursor = "pointer"; // Para que parezca un botón
-    iconoHome.onclick = function() {
-        window.location.href = "index.html";
-    };
-}
+        // Función para cerrar el menú
+        function cerrarMenu() {
+            if (sidebarLeft && overlay) {
+                sidebarLeft.classList.remove('active');
+                overlay.classList.remove('active');
+            }
+        }
 
-// 2. Botón Buscar (Icono de la lupa)
-var iconoSearch = document.getElementById('btn-ir-buscar');
-if (iconoSearch) {
-    iconoSearch.style.cursor = "pointer";
-    iconoSearch.onclick = function() {
-        // Si tienes una página de búsqueda, cámbiala aquí
-        window.location.href = "comunidad.html"; 
-    };
-}
+        // Eventos de clic
+        if (menuToggle) {
+            menuToggle.addEventListener('click', abrirMenu);
+        }
 
-// 3. Botón Menú (Icono de barras)
-var iconoMenu = document.getElementById('btn-menu-lateral');
-if (iconoMenu) {
-    iconoMenu.style.cursor = "pointer";
-    iconoMenu.onclick = function() {
-        // Generalmente este botón solo muestra/oculta el sidebar
-        // Pero si quieres que lleve a una página:
-        console.log("Menú presionado");
-    };
-}
+        if (overlay) {
+            overlay.addEventListener('click', cerrarMenu);
+        }
+
+        // Cerrar menú cuando se hace clic en un usuario o grupo
+        const userItems = document.querySelectorAll('.user-item, .group-item');
+        userItems.forEach(item => {
+            item.addEventListener('click', cerrarMenu);
+        });
     </script>
-       <script src="js/app.js"></script>
     <script src="js/chat.js"></script>
 
 </body>

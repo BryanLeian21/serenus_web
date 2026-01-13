@@ -133,6 +133,10 @@ body {
   justify-content: center;
   font-size: 15px;
   text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .activity-card strong {
@@ -143,17 +147,223 @@ body {
   font-size: 14px;
 }
 
+/* Estado expandido de la tarjeta */
+.activity-card.expanded {
+  color: white;
+  height: auto;
+  min-height: 160px;
+  padding: 20px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  transition: all 0.3s ease, background-color 0.5s ease;
+}
+
+.activity-card.expanded strong,
+.activity-card.expanded span {
+  display: none;
+}
+
+.activity-card.expanded .card-icon-container {
+  display: none;
+}
+
+/* Estilos para los iconos SVG */
+.card-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  height: 100%;
+  flex-wrap: wrap;
+}
+
+.card-icon {
+  width: 45px;
+  height: 45px;
+  transition: transform 0.3s ease;
+  opacity: 0.85;
+}
+
+.activity-card:hover .card-icon {
+  transform: scale(1.1);
+}
+
+/* Contenido expandido */
+.activity-card .expanded-content {
+  display: none;
+  width: 100%;
+  height: 100%;
+  transition: color 0.5s ease;
+}
+
+.activity-card.expanded .expanded-content {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  position: relative;
+  height: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.expanded-header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.expanded-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+  line-height: 1.2;
+  outline: none;
+  border: none;
+  background: transparent;
+  cursor: text;
+  transition: opacity 0.3s ease, color 0.5s ease;
+}
+
+.expanded-title:focus {
+  opacity: 0.9;
+}
+
+.expanded-title:empty:before {
+  content: attr(data-placeholder);
+  opacity: 0.6;
+  font-style: italic;
+}
+
+.expanded-divider {
+  width: 60%;
+  height: 2px;
+  background: white;
+  border: none;
+  margin: 0;
+  opacity: 0.9;
+}
+
+.expanded-question {
+  font-size: 12px;
+  color: white;
+  margin: 0;
+  line-height: 1.5;
+  outline: none;
+  border: none;
+  background: transparent;
+  cursor: text;
+  transition: opacity 0.3s ease, color 0.5s ease;
+  max-width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+.expanded-question:focus {
+  opacity: 0.9;
+}
+
+.expanded-question:empty:before {
+  content: attr(data-placeholder);
+  opacity: 0.6;
+  font-style: italic;
+}
+
+.add-button-container {
+  position: relative;
+  right: auto;
+  top: auto;
+  transform: none;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-button {
+  width: 70px;
+  height: 70px;
+  background: transparent;
+  border: 2px dashed white;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.add-button:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-style: solid;
+  transform: scale(1.05);
+}
+
+.add-button-icon {
+  font-size: 32px;
+  color: white;
+  font-weight: 300;
+  line-height: 1;
+  font-style: normal;
+  display: inline-block;
+  text-align: center;
+}
+
+.add-button.has-emoji {
+  border: none;
+  background: transparent;
+}
+
+.add-button.has-emoji .add-button-icon {
+  font-size: 60px;
+}
+
 /* Colores */
 .activity-card.gray {
   background: #e6e6e6;
+  color: #333;
+}
+
+.activity-card.gray .card-icon {
+  color: #6b6b6b;
 }
 
 .activity-card.blue {
   background: #b7e3ff;
+  color: #333;
+}
+
+.activity-card.blue .card-icon {
+  color: #4A90E2;
 }
 
 .activity-card.green {
   background: #d9ffe9;
+  color: #333;
+}
+
+.activity-card.green .card-icon {
+  color: #4CAF50;
+}
+
+/* Versiones expandidas con colores intensificados */
+.activity-card.gray.expanded {
+  background: #6b6b6b !important;
+  color: white !important;
+}
+
+.activity-card.blue.expanded {
+  background: #4A90E2 !important;
+  color: white !important;
+}
+
+.activity-card.green.expanded {
+  background: #4CAF50 !important;
+  color: white !important;
 }
 
 
@@ -262,5 +472,203 @@ body {
 }
 .panel__body{
   padding: 16px 20px 22px;
+}
+
+/* ==================== MENÚ HAMBURGUESA ==================== */
+.menu-toggle {
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1001;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.menu-toggle i {
+    color: white;
+    font-size: 20px;
+}
+
+.menu-toggle:hover {
+    transform: scale(1.05);
+}
+
+.menu-toggle:active {
+    transform: scale(0.95);
+}
+
+/* Ocultar el botón hamburguesa cuando el sidebar está abierto */
+.menu-overlay.active ~ .menu-toggle,
+body.sidebar-open .menu-toggle {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.9);
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+}
+
+/* ===== MODAL DE EMOTICONOS ===== */
+.emoji-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  align-items: center;
+  justify-content: center;
+}
+
+.emoji-modal.active {
+  display: flex;
+}
+
+.emoji-modal-content {
+  background: white;
+  border-radius: 20px;
+  padding: 25px;
+  max-width: 400px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.emoji-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #e5e5e5;
+}
+
+.emoji-modal-header h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #333;
+}
+
+.emoji-modal-close {
+  background: none;
+  border: none;
+  font-size: 32px;
+  color: #999;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.emoji-modal-close:hover {
+  color: #333;
+}
+
+.emoji-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}
+
+.emoji-item {
+  background: #f5f5f5;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  padding: 15px;
+  font-size: 32px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.emoji-item:hover {
+  background: #e8e8e8;
+  border-color: #4A90E2;
+  transform: scale(1.1);
+}
+
+.emoji-item:active {
+  transform: scale(0.95);
+}
+
+/* ===== RESPONSIVE: Tarjetas a pantalla completa ===== */
+@media (max-width: 768px) {
+  .activity-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  .activity-card {
+    width: 100%;
+    height: 20vh;
+    border-radius: 18px;
+    margin: 0;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
+  }
+  
+  .activity-card.expanded {
+    min-height: 20vh;
+    height: auto;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+  }
+  
+  .section {
+    margin-bottom: 20px;
+  }
+  
+  .section-header {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
+  .card-icon {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .expanded-content {
+    padding: 0 20px;
+  }
+  
+  .add-button {
+    width: 60px;
+    height: 60px;
+  }
 }
 

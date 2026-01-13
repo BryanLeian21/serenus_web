@@ -43,28 +43,39 @@ document.addEventListener('DOMContentLoaded', () => {
 // Nuevo javascipt para el menu lateral //
 
 const menuToggle = document.getElementById('menu-toggle');
-const closeMenu = document.getElementById('close-menu');
 const sidebar = document.querySelector('.sidebar-card');
 const overlay = document.getElementById('menu-overlay');
+const navItems = document.querySelectorAll('.sidebar-nav .nav-item, .sidebar-nav a');
 
 // Función para ABRIR
 function abrirMenu() {
-    sidebar.classList.add('active');
-    overlay.classList.add('active');
-    menuToggle.style.opacity = '0'; // Desvanece la hamburguesa
-    menuToggle.style.pointerEvents = 'none'; // Evita clics accidentales
+    if (sidebar && overlay && menuToggle) {
+        sidebar.classList.add('active');
+        overlay.classList.add('active');
+        document.body.classList.add('sidebar-open');
+    }
 }
 
 // Función para CERRAR
 function cerrarMenu() {
-    sidebar.classList.remove('active');
-    overlay.classList.remove('active');
-    menuToggle.style.opacity = '1'; // Reaparece la hamburguesa
-    menuToggle.style.pointerEvents = 'auto';
+    if (sidebar && overlay) {
+        sidebar.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.classList.remove('sidebar-open');
+    }
 }
 
 // Eventos de clic
-menuToggle.addEventListener('click', abrirMenu);
-closeMenu.addEventListener('click', cerrarMenu);
-overlay.addEventListener('click', cerrarMenu); // Cerrar al tocar lo oscuro
+if (menuToggle) {
+    menuToggle.addEventListener('click', abrirMenu);
+}
+
+if (overlay) {
+    overlay.addEventListener('click', cerrarMenu); // Cerrar al tocar lo oscuro
+}
+
+// Cerrar menú cuando se haga clic en un enlace de navegación
+navItems.forEach(item => {
+    item.addEventListener('click', cerrarMenu);
+});
 

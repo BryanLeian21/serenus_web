@@ -1,9 +1,457 @@
-.container-model{
+/* ==================== CONTENEDOR PRINCIPAL ==================== */
+.vr-main-container {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
     display: flex;
-    padding: 5px;
-    margin: solid 10px;
-    gap: 25px;
-    background-color: rgb(8, 8, 8);
-    border-radius: 20%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    margin-left: 280px;
+    transition: margin-left 0.3s ease;
+    padding: 60px 20px 140px;
+}
 
+#canvas3d {
+    width: 100%;
+    height: auto;
+    max-width: 500px;
+    aspect-ratio: 1 / 1;
+    display: block;
+    flex-shrink: 0;
+    transition: transform 1s ease-in, opacity 1s ease-in;
+}
+
+#canvas3d.slide-out-right {
+    transform: translateX(120%) scale(0.8);
+    opacity: 0;
+}
+
+/* ==================== BOTONES 3D ==================== */
+.buttons-3d-container {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    padding: 0 20px;
+    position: relative;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+    transition: transform 1s ease-in, opacity 1s ease-in;
+}
+
+/* ==================== TÍTULO SERENUS ==================== */
+.title-container {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    z-index: 10;
+    text-align: center;
+}
+
+.serenus-title {
+    font-size: clamp(56px, 12vw, 180px);
+    font-weight: 800;
+    color: #000000;
+    margin: 0;
+    letter-spacing: 0;
+    text-shadow: none;
+    line-height: 1.1;
+    white-space: nowrap; /* fuerza una sola línea */
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Símbolo de carga bajo el título */
+.loading-symbol {
+    width: clamp(36px, 6vw, 64px);
+    height: clamp(36px, 6vw, 64px);
+    margin: 24px auto 0;
+    border-radius: 50%;
+    border: 8px solid rgba(0, 0, 0, 0.12);
+    border-top-color: #000000;
+    animation: spinnerRotate 1.2s linear infinite;
+}
+
+@keyframes spinnerRotate {
+    to { transform: rotate(360deg); }
+}
+
+.title-container.show-title {
+    opacity: 1;
+}
+
+.title-container.show-title .letter {
+    animation: loadingWave 1.4s ease-in-out infinite both;
+}
+
+.letter {
+    display: inline-block;
+    opacity: 0.7;
+    transform: translateY(0);
+}
+
+.title-container.show-title .letter:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.title-container.show-title .letter:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.title-container.show-title .letter:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.title-container.show-title .letter:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.title-container.show-title .letter:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.title-container.show-title .letter:nth-child(6) {
+    animation-delay: 0.6s;
+}
+
+.title-container.show-title .letter:nth-child(7) {
+    animation-delay: 0.7s;
+}
+
+@keyframes loadingWave {
+    0% {
+        opacity: 0.6;
+        transform: translateY(0);
+    }
+    25% {
+        opacity: 1;
+        transform: translateY(-8px);
+    }
+    50% {
+        opacity: 0.8;
+        transform: translateY(0);
+    }
+    75% {
+        opacity: 1;
+        transform: translateY(8px);
+    }
+    100% {
+        opacity: 0.6;
+        transform: translateY(0);
+    }
+}
+
+/* Overlay de crash simulado */
+.crash-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 16px;
+    z-index: 2000;
+    text-align: center;
+    pointer-events: all;
+}
+
+.crash-message {
+    font-size: clamp(18px, 3vw, 28px);
+    font-weight: 600;
+}
+
+.crash-overlay .loading-symbol {
+    border-color: rgba(255,255,255,0.2);
+    border-top-color: #ffffff;
+}
+
+/* ==================== BOTONES 3D ==================== */
+.buttons-3d-container.slide-out-down {
+    transform: translateY(150px);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.btn-3d {
+    padding: 14px 35px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.btn-3d:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.btn-3d:active {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Botón Cambio */
+.btn-3d-cambio {
+    order: 1;
+}
+
+/* Botón Juego - más grande y arriba */
+.btn-3d-juego {
+    order: 2;
+    padding: 16px 50px;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* Botón VR */
+.btn-3d-vr {
+    order: 3;
+}
+
+/* ==================== ESTADO LIMPIO ====================*/
+.vr-main-container.clean-screen {
+    justify-content: center;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.btn-3d-text {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;;
+    font-family: 'Arial', sans-serif;
+    letter-spacing: 1px;
+}
+
+/* ==================== MENÚ HAMBURGUESA ==================== */
+.menu-toggle {
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1001;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.menu-toggle i {
+    color: white;
+    font-size: 20px;
+}
+
+.menu-toggle:hover {
+    transform: scale(1.05);
+}
+
+.menu-toggle:active {
+    transform: scale(0.95);
+}
+
+.menu-toggle.active {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* ==================== OVERLAY ==================== */
+.menu-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.menu-overlay.active {
+    display: block;
+    opacity: 1;
+}
+
+/* ==================== BARRA LATERAL ==================== */
+.sidebar-card {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 280px;
+    height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    z-index: 1000;
+    overflow-y: auto;
+    transition: left 0.3s ease;
+}
+
+.sidebar-card.active {
+    left: 0;
+}
+
+.sidebar-header {
+    padding: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+}
+
+.sidebar-brand a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.nav-item {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+}
+
+.nav-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.nav-item.active {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border-left-color: white;
+}
+
+/* ==================== RESPONSIVE ==================== */
+
+/* Tablets (769px - 1024px) */
+@media (max-width: 1024px) {
+    .vr-main-container {
+        margin-left: 220px;
+    }
+
+    .sidebar-card {
+        width: 220px;
+    }
+
+    .buttons-3d-container {
+        gap: 30px;
+    }
+
+    .btn-3d {
+        width: 85px;
+        height: 85px;
+        font-size: 14px;
+    }
+}
+
+/* Tablets pequeños / Móviles grandes (481px - 768px) */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    .vr-main-container {
+        margin-left: 0;
+    }
+
+    .sidebar-card {
+        left: -280px;
+        width: 280px;
+    }
+
+    .sidebar-card.active {
+        left: 0;
+    }
+
+    #canvas3d {
+        height: calc(100vh - 130px);
+    }
+
+    .buttons-3d-container {
+        height: 130px;
+        gap: 20px;
+        padding: 20px 0;
+    }
+
+    .btn-3d {
+        width: 80px;
+        height: 80px;
+        font-size: 13px;
+    }
+}
+
+/* Móviles pequeños (hasta 480px) */
+@media (max-width: 480px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    .vr-main-container {
+        margin-left: 0;
+    }
+
+    .sidebar-card {
+        left: -280px;
+        width: 280px;
+    }
+
+    .sidebar-card.active {
+        left: 0;
+    }
+
+    #canvas3d {
+        height: calc(100vh - 120px);
+    }
+
+    .buttons-3d-container {
+        height: 120px;
+        gap: 15px;
+        padding: 15px 0;
+    }
+
+    .btn-3d {
+        width: 70px;
+        height: 70px;
+        font-size: 12px;
+    }
+
+    .btn-3d-text {
+        font-size: 11px;
+    }
 }

@@ -57,6 +57,22 @@
                         <a href="repositorio.html">Recursos</a>
                     </button>
                 </div>
+
+                <!-- Barra de reacción (Mood emoticon) -->
+                <div class="mood-reaction-bar">
+                    <h3>¿Cómo te sientes?</h3>
+                    <div class="mood-emojis-reaction">
+                        <span data-mood="enojado">😠</span>
+                        <span data-mood="triste">😔</span>
+                        <span data-mood="asustado">😨</span>
+                        <span data-mood="confundido">😕</span>
+                        <span data-mood="calmado">😌</span>
+                        <span data-mood="feliz">😊</span>
+                        <span data-mood="motivado">💪</span>
+                        <span data-mood="agradecido">🙏</span>
+                        <span data-mood="amado">🥰</span>
+                    </div>
+                </div>
             </section>      
         </main>
 
@@ -64,108 +80,28 @@
 
     <!--Barra lateral mood tracker-->
 
-    <section class="mood-tracker-sidebar">
-                <div class="logo-section">
-                <span class="logo-text">SERENUS</span>
-                </div>
-                <h3>Mood emoticon</h3>
-                <div class="mood-emojis-grid-desktop">
-                    <span data-mood="enojado">😠</span>
-                    <span data-mood="triste">😔</span>
-                    <span data-mood="asustado">😨</span>
-                    <span data-mood="confundido">😕</span>
-                    <span data-mood="calmado">😌</span>
-                    <span data-mood="feliz">😊</span>
-                    <span data-mood="motivado">💪</span>
-                    <span data-mood="agradecido">🙏</span>
-                    <span data-mood="amado">🥰</span>
-                </div>
-                <div id="modal-agradecimiento" class="modal-hidden">
-                            <div class="modal-content">
-                            <h2>!Muchas Gracias por tu Interacción!</h2>
-                            <p>Cada reacción en el “Mood Emoticon”, nos ayuda a comprenderte mejor.</p>
-                            <button id="btn-atras">atras</button>
-                            </div>
-                </div>
-            </section>
+    
 </div>
     <script>
-        // --- Script de la funcion de los emoticonos ---
-         window.onload = function() {
-    
-        // 1. Buscamos el botón por su ID
-        var botonAyuda = document.getElementById('booton_press');
-
-        // 2. Si el botón existe en esta página...
-         if (botonAyuda) {
-        // 3. Le decimos qué hacer cuando alguien le haga clic
-        botonAyuda.onclick = function() {
-            // 4. Cambiamos la dirección de la página actual
-            // Verifica que la ruta al archivo sea correcta
-            window.location.href = "chat.html";
-        };
-         }
-        };
-
-            window.onload = function() {
-             // 1. Buscamos todos los emojis (spans) y el modal
-         var listaEmojis = document.querySelectorAll('.mood-emojis-grid-desktop span');
+        window.onload = function() {
+            // Script para los emoticonos del mood
+            var listaEmojis = document.querySelectorAll('.mood-emojis-reaction span');
             var ventanaModal = document.getElementById('modal-agradecimiento');
-         var botonCerrar = document.getElementById('btn-atras');
+            var botonCerrar = document.getElementById('btn-atras');
 
-    // 2. A cada emoji le damos la instrucción de abrir el modal
-    listaEmojis.forEach(function(emoji) {
-        emoji.onclick = function() {
-            // En lugar de aparecer al lado, el modal ocupa toda la pantalla
-            ventanaModal.style.display = "flex"; 
+            listaEmojis.forEach(function(emoji) {
+                emoji.onclick = function() {
+                    ventanaModal.style.display = "flex"; 
+                };
+            });
+
+            if (botonCerrar) {
+                botonCerrar.onclick = function() {
+                    ventanaModal.style.display = "none";
+                };
+            }
         };
-    });
-
-    // 3. Instrucción para el botón "atras" para cerrar
-    if (botonCerrar) {
-        botonCerrar.onclick = function() {
-            ventanaModal.style.display = "none";
-        };
-    }
-};
-
-
-
-
-        // --- ICONOS DE LA CABEZA (TOP-NAV) ---
-
-        // 1. Botón Home (Icono de la casita)
-    var iconoHome = document.getElementById('btn-ir-home');
-if (iconoHome) {
-    iconoHome.style.cursor = "pointer"; // Para que parezca un botón
-    iconoHome.onclick = function() {
-        window.location.href = "index.html";
-    };
-}
-
-// 2. Botón Buscar (Icono de la lupa)
-var iconoSearch = document.getElementById('btn-ir-buscar');
-if (iconoSearch) {
-    iconoSearch.style.cursor = "pointer";
-    iconoSearch.onclick = function() {
-        // Si tienes una página de búsqueda, cámbiala aquí
-        window.location.href = "comunidad.html"; 
-    };
-}
-
-// 3. Botón Menú (Icono de barras)
-var iconoMenu = document.getElementById('btn-menu-lateral');
-if (iconoMenu) {
-    iconoMenu.style.cursor = "pointer";
-    iconoMenu.onclick = function() {
-        // Generalmente este botón solo muestra/oculta el sidebar
-        // Pero si quieres que lleve a una página:
-        console.log("Menú presionado");
-    };
-}
     </script>
-       <script src="js/app.js"></script>
-
-    <script src="Obtener ayuda/script.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>
