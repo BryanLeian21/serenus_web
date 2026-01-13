@@ -821,3 +821,29 @@ a{
     opacity: 1;
     visibility: visible;
 }
+
+/* Oculta el botón hamburguesa cuando se añade la clase .hidden desde JS */
+.menu-toggle.hidden {
+    display: none;
+}
+
+.menu-toggle.hidden { display: none !important; }
+
+
+
+
+
+/* Footer fijo al final */
+.sidebar-footer {
+    flex: 0 0 auto;
+    margin-top: 20px;
+    padding-top: 12px;
+}
+
+/* Ajustes responsive */
+@media (max-width: 768px) {
+    .sidebar-card { width: 250px; }
+    .sidebar-brand { font-size: 22px; }
+    .nav-item { font-size: 16px; }
+    .nav-item .nav-subtitle { font-size: 11px; }
+}

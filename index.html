@@ -156,10 +156,36 @@
         };
     }
 };
+
     </script>
+
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.getElementById('menu-toggle');
+    const sidebar = document.querySelector('.sidebar-card');
+    const closeMenu = document.getElementById('close-menu');
+    const overlay = document.getElementById('menu-overlay');
+
+    function openMenu() {
+        sidebar.classList.add('active');
+        overlay.classList.add('active');
+        menuToggle.classList.add('hidden');
+    }
+    function closeMenuFn() {
+        sidebar.classList.remove('active');
+        overlay.classList.remove('active');
+        menuToggle.classList.remove('hidden');
+    }
+
+    if (menuToggle) menuToggle.addEventListener('click', openMenu);
+    if (closeMenu) closeMenu.addEventListener('click', closeMenuFn);
+    if (overlay) overlay.addEventListener('click', closeMenuFn);
+});
+</script>
 
     <script src="js/app.js"></script>
     <script src="router.js"></script>
+    <script src="js/menu.js"></script>
 
     
 
